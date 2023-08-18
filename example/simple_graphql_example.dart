@@ -3,27 +3,9 @@ import 'my_graphql_client.dart';
 Future<void> main() async {
   final client = MyGraphQLClient();
 
-  const query = 
-  '''
-  {
-    characters(page: 2, filter: { name: "Morty" }) {
-      info {
-        count
-      }
-      results {
-        name
-      }
-    }
-    location(id: 1) {
-      id
-    }
-    episodesByIds(ids: [1, 2]) {
-      id
-    }
-  }
-  ''';
+  const query = 'query {printers {list {...on Printer {name, id, model, host, port, delay}},}}';
 
-  final data = await client.query(query: query);
+  final data = await client.execute(query: query);
 
   print(data);
 }

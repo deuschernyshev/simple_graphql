@@ -15,29 +15,10 @@ abstract class SimpleGraphQLClient {
   /// ```dart
   /// final client = SimpleGraphQLClient();
   /// final result = await client.query('{ person(id: 10) { name age } }');
-  Future<dynamic> query({required String query}) async {
+  Future<dynamic> execute({required String query}) async {
     final response = await http.post(
       _uri,
-      body: {
-        'query': query.replaceAll(' ', ''),
-      },
-      headers: headers,
-    );
-
-    return jsonDecode(response.body);
-  }
-
-  /// Метод для отправки GraphQL запроса для изменения данных
-  /// ```dart
-  /// final client = SimpleGraphQLClient();
-  /// final result = await client.mutation('{ createSong { addSong(title: "Город под подошвой", performer: "OXXXYMIRON") { id title performer } } }');
-  /// ```
-  Future<dynamic> mutation({required String query}) async {
-    final response = await http.post(
-      _uri,
-      body: {
-        'mutation': query.replaceAll(' ', ''),
-      },
+      body: query,
       headers: headers,
     );
 
