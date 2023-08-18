@@ -1,0 +1,17 @@
+name: simple_graphql
+description: Simple GraphQL client for Dart and FLutter.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.1.0
+
+dependencies:
+  http: ^1.1.0
+  meta: ^1.9.1
+  # path: ^1.8.0
+
+dev_dependencies:
+  lint: ^2.1.2
+  lints: ^2.0.0
+  test: ^1.21.0
