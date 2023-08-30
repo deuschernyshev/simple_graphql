@@ -23,7 +23,7 @@ abstract class SimpleGraphQLClient {
 
     final response = await http.post(
       _uri,
-      body: jsonEncode(body),
+      body: body,
       headers: headers,
     );
 
