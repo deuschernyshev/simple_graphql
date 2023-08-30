@@ -16,9 +16,13 @@ abstract class SimpleGraphQLClient {
   /// final client = SimpleGraphQLClient();
   /// final result = await client.query('{ person(id: 10) { name age } }');
   Future<dynamic> execute({required String query}) async {
+    final Map<String, dynamic> body = {
+      'query': query,
+    };
+
     final response = await http.post(
       _uri,
-      body: query,
+      body: jsonEncode(body),
       headers: headers,
     );
 
