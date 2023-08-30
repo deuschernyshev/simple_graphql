@@ -18,7 +18,6 @@ abstract class SimpleGraphQLClient {
   Future<dynamic> execute({required String query}) async {
     final Map<String, dynamic> body = {
       'query': query,
-      'variables': null,
     };
 
     final response = await http.post(
